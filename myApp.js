@@ -1,9 +1,9 @@
 var express = require('express');
 const helmet = require("helmet");
-
+const cors = require("cors")
 var app = express();
 
-
+app.use(cors())
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "deny" }));
 
