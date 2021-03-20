@@ -15,12 +15,7 @@ app.use(helmet.hsts({
 }));
 app.use(helmet.dnsPrefetchControl({ allow: false }));
 app.use(helmet.noCache());
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", 'trusted-cdn.com']
-  }
-}));
+app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] } }));
 
 
 
