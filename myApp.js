@@ -4,6 +4,7 @@ const cors = require("cors")
 var app = express();
 
 app.use(cors())
+/*
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: "deny" }));
 app.use(helmet.xssFilter());
@@ -15,9 +16,22 @@ app.use(helmet.hsts({
 }));
 app.use(helmet.dnsPrefetchControl({ allow: false }));
 app.use(helmet.noCache());
+*/
 app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] } }));
-
-
+/*
+app.use(helmet({
+  frameguard: {         // configure
+    action: 'deny'
+  },
+  contentSecurityPolicy: {    // enable and configure
+    directives: {
+      defaultSrc: ["self"],
+      styleSrc: ['style.com'],
+    }
+  },
+  dnsPrefetchControl: false     // disable
+}))
+*/
 
 
 
